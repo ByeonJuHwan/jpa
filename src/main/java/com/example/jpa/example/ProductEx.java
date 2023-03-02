@@ -19,7 +19,4 @@ public class ProductEx {
     private String id;
 
     private String name;
-
-    @ManyToMany(mappedBy = "products") // 역방향 추가
-    private List<MemberEx> members = new ArrayList<>();
 }

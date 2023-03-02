@@ -16,15 +16,8 @@ public class MemberEx {
 
     private String username;
 
-    @ManyToMany
-    @JoinTable(name = "MEMBER_PRODUCT",
-            joinColumns = @JoinColumn(name = "MEBMER_ID"),
-            inverseJoinColumns = @JoinColumn(name = "PRODUCT_ID"))
-    private List<ProductEx> products = new ArrayList<>();
 
-    public void addProduct(ProductEx product) {
-        products.add(product);
-        product.getMembers().add(this);
-    }
-
+    // 역방향
+    @OneToMany(mappedBy = "member")
+    private List<OrderEx> products = new ArrayList<>();
 }
